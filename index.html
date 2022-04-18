@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .error {color: #FF0000;}
+        
+    </style>
+</head>
+<body>
+    <h1 class="title">Simple Calculator with Javascript</h1>
+
+    <h5>Table of content</span>
+    <ol>
+        <li>Membuat elemen input angka</li>
+        <li>Membuat fungsi operator</li>
+        <li>membuat hasil dari fungsi yang dibuat</li>
+    </ol>
+
+    <h5>Membuat elemen input angka</h5>
+    <input type="number" name="angka1" id="angka-1">
+    <select name="operator" id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="number" name="angka2" id="angka-2">
+    <button type="button" id="hitung">Hitung</button>
+    <hr>
+    <h2 id="hasil"></h2>
+
+    <script>
+        var operator = document.getElementById('operator');
+        var hasil = document.getElementById('hasil');
+
+        // Membuat fungsi operator
+        function tambah() {
+            var angka1 = parseInt(document.getElementById('angka-1').value);
+            var angka2 = parseInt(document.getElementById('angka-2').value);
+            var hasil = angka1 + angka2;
+            document.getElementById('hasil').innerHTML = hasil;
+        }
+
+        function kurang() {
+            var angka1 = parseInt(document.getElementById('angka-1').value);
+            var angka2 = parseInt(document.getElementById('angka-2').value);
+            var hasil = angka1 - angka2;
+            document.getElementById('hasil').innerHTML = hasil;
+        }
+
+        function kali() {
+            var angka1 = parseInt(document.getElementById('angka-1').value);
+            var angka2 = parseInt(document.getElementById('angka-2').value);
+            var hasil = angka1 * angka2;
+            document.getElementById('hasil').innerHTML = hasil;
+        }
+
+        function bagi() {
+            var angka1 = parseInt(document.getElementById('angka-1').value);
+            var angka2 = parseInt(document.getElementById('angka-2').value);
+            var hasil = angka1 / angka2;
+            document.getElementById('hasil').innerHTML = hasil;
+        }
+
+        // Membuat hasil dari fungsi yang dibuat
+        var hitung = document.getElementById('hitung');
+        hitung.addEventListener('click', function() {
+            if (operator.value == '+') {
+                tambah();
+            } else if (operator.value == '-') {
+                kurang();
+            } else if (operator.value == '*') {
+                kali();
+            } else if (operator.value == '/') {
+                bagi();
+            }
+        });
+    </script>
+</body>
+</html>
